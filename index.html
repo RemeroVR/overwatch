@@ -4,10 +4,21 @@
     <meta charset="UTF-8" />
     <title>Overwatch · Global Intel Console</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" crossorigin src="/overwatch/assets/index-7ZAWjaOy.js"></script>
+    <script type="module" crossorigin src="/overwatch/assets/index-BPa295SD.js"></script>
     <link rel="stylesheet" crossorigin href="/overwatch/assets/index-ivmuFcLL.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Fallback to show a visible message if React fails to initialize
+      window.__OV_DEBUG_TIMEOUT = setTimeout(() => {
+        console.error('Overwatch: React did not initialize within 3s');
+        const root = document.getElementById('root');
+        if (root && root.innerHTML.trim() === '') {
+          root.innerHTML = '<div style="padding:24px;font-family:system-ui,Segoe UI,Roboto,Arial"><h2>App failed to start</h2><p>Open the browser console for error details.</p></div>';
+        }
+      }, 3000);
+      window.addEventListener('react-ready', () => clearTimeout(window.__OV_DEBUG_TIMEOUT));
+    </script>
   </body>
 </html>
